@@ -1,8 +1,8 @@
-version: '2.2'
+version: '3.9'
 
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.0.1
     container_name: es01
     environment:
       - node.name=es01
@@ -42,7 +42,7 @@ services:
       retries: 5
 
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.0.1
     container_name: es02
     environment:
       - node.name=es02
@@ -70,9 +70,11 @@ services:
     restart: always
 
   kib01:
-    image: docker.elastic.co/kibana/kibana:${VERSION}
+    image: docker.elastic.co/kibana/kibana:9.0.1
     container_name: kib01
-    depends_on: { 'es01': { 'condition': 'service_healthy' } }
+    depends_on:
+      es01:
+        condition: service_healthy
     expose:
       - 5601
     environment:
