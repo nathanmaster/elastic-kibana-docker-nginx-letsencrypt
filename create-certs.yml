@@ -7,10 +7,10 @@ services:
     command: >
       bash -c '
         if [[ ! -f /certs/bundle.zip ]]; then
-          sudo bin/elasticsearch-certutil cert --silent --pem --in config/certificates/instances.yml -out /certs/bundle.zip;
-          sudo unzip /certs/bundle.zip -d /certs;
+          bin/elasticsearch-certutil cert --silent --pem --self-signed --in config/certificates/instances.yml -out /certs/bundle.zip;
+          unzip /certs/bundle.zip -d /certs;
         fi;
-        sudo chown -R 1000:0 /certs;
+        chown -R 1000:0 /certs;
       '
     working_dir: /usr/share/elasticsearch
     volumes:
