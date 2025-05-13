@@ -7,7 +7,7 @@ fi
 
 domains=(kibana.edgecomsec.info)
 rsa_key_size=4096
-data_path="./nginx/certbot"
+data_path="./certs"
 email="ns122463@gmail.com" # Updated email address
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 

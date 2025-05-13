@@ -30,7 +30,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/azureuser/elastic-kibana-docker-nginx-letsencrypt/nginx/certbot/www
+      device: /home/azureuser/elastic-kibana-docker-nginx-letsencrypt/certs
 
 networks:
   elastic:
