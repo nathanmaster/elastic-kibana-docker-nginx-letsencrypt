@@ -83,3 +83,7 @@ sudo docker-compose run --rm --entrypoint "\
     --force-renewal" certbot
 echo
 
+# No changes needed. The script already uses ./certs which is mapped to the persistent host directory.
+# If you encounter permission issues, run this on the host:
+# sudo chown -R $USER:$USER ./certs
+
